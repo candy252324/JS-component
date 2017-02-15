@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task29-2</title>
+	<style type="text/css">
+		html,body,ul,li{
+			margin:0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		img{
+			width: 260px;
+			height: 350px;
+		}
+		.wrap{
+			width: 820px;
+			margin:0 auto;
+		}
+		.ct{
+			margin-right:-40px;
+		}
+		.ct:after{
+			content: "";
+			display: block;
+			clear:both;
+		}
+		.ct li{
+			float: left;
+			margin-right: 20px;
+			margin-bottom: 20px;
+			
+		}
+		#goTop{
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+			padding: 10px;
+			background: #99d9ea;
+			border-top:1px solid #fff;
+			border-left:1px solid #fff;
+			border-radius: 5px;
+			box-shadow: 0 0 6px #ccc;
+			display: none;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wrap">
+		<ul class="ct">
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/1.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/2.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/3.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/4.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/5.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/6.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/7.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/8.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/9.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/10.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/1.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/2.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/3.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/4.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/5.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/6.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/7.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/8.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/9.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/10.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/1.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/2.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/3.png"></a></li>
+			<li><a href="#"><img src="./img/blank.png" alt="图片下载失败" data-src="./img/4.png"></a></li>
+		</ul>
+	</div>
+
+	<script src="./tools/require.min.js"></script>
+ 	<script type="text/javascript">
+		requirejs.config({
+			baseUrl:"./js",
+			paths:{
+				"jquery":"../lib/jquery.min"
+			}
+		})
+		requirejs(["lazyloadEntry"]);
+ 	</script>
+
+	
+</body>
+</html>

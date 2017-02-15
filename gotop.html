@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>gotop</title>
+	<style type="text/css">
+		#gotop{
+			display: none;
+			position: fixed;
+			bottom: 10px;
+			right: 20px; 
+			height: 50px;
+			background: orange;
+		}
+		div{
+			height: 3000px;
+			padding: 20px;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div>鼠标向下滚动出现“回到顶部”按钮</div>
+
+	<script src="./tools/require.min.js"></script>
+ 	<script type="text/javascript">
+		requirejs.config({
+			baseUrl:"./js",
+			paths:{
+				"jquery":"../lib/jquery.min"
+			}
+		})
+
+		requirejs(["gotopEntry"]);
+ 	</script>
+
+</body>
+</html>
