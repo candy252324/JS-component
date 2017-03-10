@@ -1,7 +1,10 @@
-define(['jquery','com/carousel'],function($,Carousel){
+define(['jquery','com/carousel-slide','com/carousel-fade'],function($,CarouselSlide,CarouselFade){
 	
-	 $(".carousel").each(function(){
-	 	new Carousel($(this));
+	 $(".carousel-slide").each(function(){
+	 	new CarouselSlide($(this));
+	 })
+	  $(".carousel-fade").each(function(){
+	 	new CarouselFade($(this));
 	 })
 
 
