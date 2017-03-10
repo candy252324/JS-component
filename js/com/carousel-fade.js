@@ -32,9 +32,14 @@ define(['jquery','com/event'],function($,Event){
 				this.$items=this.$ct.children();
 
 				this.imgCount=this.$items.length;
+				this.imgWidth=this.$items.width();
+				this.imgHeight=this.$items.height();
+
 				this.curIdx=0
 				this.isAnimate=false
 
+
+				this.$ct.css({width:this.imgWidth,height:this.imgHeight})  //避免this.$ct高度塌陷
 				this.init()
 
 			}

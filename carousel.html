@@ -14,8 +14,7 @@
  		a{
  			text-decoration: none;
  		}
-
-
+		
  		.carousel{   /*img-ct设置了absolute,carousel不写宽高要塌陷*/
 			position: relative;
 			width:310px;
@@ -26,7 +25,7 @@
 		
  		/*slide*/
 		.carousel-slide .img-ct{
-			position: absolute;  /*设置absolute才有滑动效果*/
+			position: absolute;  /*设置absolute才有滑动效果，同时BFC化，img-ct高度不塌陷*/
 		}
 		.carousel-slide .img-ct >li{
 			float: left;
@@ -154,7 +153,7 @@
  	
 
  	
- 	<div class="carousel carousel-fade carousel-bigger">
+ 	<div class="carousel carousel-fade carousel-bigger clearfix">
  		<ul class="img-ct">
  			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
  			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
@@ -172,7 +171,7 @@
  	</div>
  	
 
- 	<div class="carousel carousel-fade">
+ 	<div class="carousel carousel-fade clearfix">
  		<ul class="img-ct">
  			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
  			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
