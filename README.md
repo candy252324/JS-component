@@ -1,6 +1,6 @@
 # JS-component使用效果演示
 
-[carousel](https://candy252324.github.io/JS-component/carousle.html)
+[carousel](https://candy252324.github.io/JS-component/carousel.html)
 
 [event](https://candy252324.github.io/JS-component/event.html)
 
