@@ -1,4 +1,4 @@
-define(['jquery','com/carousel','com/event'],function($,Carousel,Event){
+define(['jquery','com/carousel-slide','com/event'],function($,Carousel,Event){
 	
 	 $(".carousel").each(function(){
 	 	new Carousel($(this));
