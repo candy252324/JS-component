@@ -1,85 +1,89 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>stickup</title>
-    <style type="text/css">
-        #wrap{
-            width: 960px;
-            margin:0 auto;
-        }
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>stickup</title>
+  <style type="text/css">
+    #wrap {
+      width: 960px;
+      margin: 0 auto;
+    }
 
-        .nav{
-          height: 80px;
-          margin-top: 30px;
-          background: #99d9ea;
-        }
-        .header{
-          background: #c8bfe7;
-          height: 80px;
-          line-height: 80px;
-          text-align: center;
-        }
-        .content{
-          min-height: 500px;
-          overflow: auto;
-        }
-        .content .aside{
-          float: left;
-          width: 150px;
-          min-height: 500px;
-          background: #efe4b0;
-          margin-right: 10px;
-        }
-        .content .main{
-          overflow: auto;
-          background: #ccc;
-          padding-left: 20px;
-          min-height: 500px;
-        }
-        .footer{
-          background: #599573;
-          height: 50px;
-        }
+    .nav {
+      height: 80px;
+      margin-top: 30px;
+      background: #99d9ea;
+    }
+
+    .header {
+      background: #c8bfe7;
+      height: 80px;
+      line-height: 80px;
+      text-align: center;
+    }
+
+    .content {
+      min-height: 500px;
+      overflow: auto;
+    }
+
+    .content .aside {
+      float: left;
+      width: 150px;
+      min-height: 500px;
+      background: #efe4b0;
+      margin-right: 10px;
+    }
+
+    .content .main {
+      overflow: auto;
+      background: #ccc;
+      padding-left: 20px;
+      min-height: 500px;
+    }
+
+    .footer {
+      background: #599573;
+      height: 50px;
+    }
 
 
-    </style>
+  </style>
 
-  </head>
+</head>
 <body>
-    <div class="wrap">
-        <div class="header">header</div>
-        <div class="nav">nav1</div>
-        <div class="content">
-            <div class="aside">aside</div>
-            <div class="main">main</div>
-        </div>
-        <div class="nav">nav2</div>
-        <div class="content">
-            <div class="aside">aside</div>
-            <div class="main">main</div>
-        </div>
-        <div class="nav">nav3</div>
-        <div class="content">
-            <div class="aside">aside</div>
-            <div class="main">main</div>
-        </div>
-        <div class="footer">footer</div>
-    </div>
+<div class="wrap">
+  <div class="header">header</div>
+  <div class="nav">nav1</div>
+  <div class="content">
+    <div class="aside">aside</div>
+    <div class="main">main</div>
+  </div>
+  <div class="nav">nav2</div>
+  <div class="content">
+    <div class="aside">aside</div>
+    <div class="main">main</div>
+  </div>
+  <div class="nav">nav3</div>
+  <div class="content">
+    <div class="aside">aside</div>
+    <div class="main">main</div>
+  </div>
+  <div class="footer">footer</div>
+</div>
 
-    <script src="./tools/require.min.js"></script>
-    <script type="text/javascript">
-        requirejs.config({
-            baseUrl:"./js",
-            paths:{
-                "jquery":"../lib/jquery.min"
-            }
-        })
+<script src="./tools/require.min.js"></script>
+<script type="text/javascript">
+  requirejs.config({
+    baseUrl: "./js",
+    paths: {
+      "jquery": "../lib/jquery.min"
+    }
+  })
 
-        requirejs(["stickupEntry"]);
-    </script>
+  requirejs(["stickupEntry"]);
+</script>
 
 
 </body>

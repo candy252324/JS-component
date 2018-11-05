@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>exposure</title>
-	<style type="text/css">
-		body{
-			height: 3000px;
-		}
-		.box1{
-			position: absolute;
-			top:500px;
-			padding: 10px;
-			background: orange;
-			height: 100px;
-		}
-		.box2{
-			position: absolute;
-			top:800px;
-			padding: 10px;
-			background: pink;
-			height: 100px;
-		}
-	</style>
+  <meta charset="UTF-8">
+  <title>exposure</title>
+  <style type="text/css">
+    body {
+      height: 3000px;
+    }
+
+    .box1 {
+      position: absolute;
+      top: 500px;
+      padding: 10px;
+      background: orange;
+      height: 100px;
+    }
+
+    .box2 {
+      position: absolute;
+      top: 800px;
+      padding: 10px;
+      background: pink;
+      height: 100px;
+    }
+  </style>
 </head>
 <body>
-	
-	<div class="box1">滚动鼠标，这个div只有第一次出现在窗口中控制台有打印</div>
-	<div class="box2">这个div每次出现在窗口中都会打印</div>
 
-	<script src="./tools/require.min.js"></script>
- 	<script type="text/javascript">
-		requirejs.config({
-			baseUrl:"./js",
-			paths:{
-				"jquery":"../lib/jquery.min"
-			}
-		})
+<div class="box1">滚动鼠标，这个div只有第一次出现在窗口中控制台有打印</div>
+<div class="box2">这个div每次出现在窗口中都会打印</div>
 
-		requirejs(["exposureEntry"]);
- 	</script>
+<script src="./tools/require.min.js"></script>
+<script type="text/javascript">
+  requirejs.config({
+    baseUrl: "./js",
+    paths: {
+      "jquery": "../lib/jquery.min"
+    }
+  })
+
+  requirejs(["exposureEntry"]);
+</script>
 
 
 </body>

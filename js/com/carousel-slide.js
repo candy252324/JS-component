@@ -1,122 +1,122 @@
 
 /**
 
-$(".carousel").each(function(){
-			new Carousel($(this));
-		})
-		
+ $(".carousel").each(function(){
+		new Carousel($(this));
+	})
+
 **/
 
-define(['jquery','com/event'],function($,Event){
+define(['jquery', 'com/event'], function ($, Event) {
 
-	var Carousel=(function(){
-			
-			var Carousel=function ($carousel){
-				this.$pre=$carousel.find(".pre")	  
-				this.$next=$carousel.find(".next")    
-				this.$ct=$carousel.find(".img-ct") 
-				this.$bullet=$carousel.find(".bullet")   
-				this.$items=this.$ct.children()
+  var Carousel = (function () {
 
-				this.imgCount=this.$items.length
-				this.imgWidth=this.$items.width()
+    var Carousel = function ($carousel) {
+      this.$pre = $carousel.find(".pre")
+      this.$next = $carousel.find(".next")
+      this.$ct = $carousel.find(".img-ct")
+      this.$bullet = $carousel.find(".bullet")
+      this.$items = this.$ct.children()
 
-				this.curIdx=0
-				this.isAnimate=false
+      this.imgCount = this.$items.length
+      this.imgWidth = this.$items.width()
 
-				this.$ct.css({width:this.imgWidth*this.imgCount})
-				this.init()
+      this.curIdx = 0
+      this.isAnimate = false
 
-			}
-			Carousel.prototype={
-				init:function(){
-					this.playAuto();
-					this.bind();
-				},
-				bind:function(){
-					var $cur=this;
-					$cur.$pre.on('click',function(){
-						$cur.playPre();
-					});
-					$cur.$next.on('click',function(){
-						$cur.playNext();
-					});
-					$cur.$bullet.find("li").on("click",function(){
-						var idx=$(this).index();
-						if(idx>$cur.curIdx){
-							$cur.playNext(idx-$cur.curIdx);
-						}
-						if(idx<$cur.curIdx){
-							$cur.playPre($cur.curIdx-idx);
-						}
-					})
-				},
-				playPre:function(idx){
-					var $cur=this;
-					var idx=idx || 1;
-					if(!$cur.isAnimate){
-						$cur.isAnimate=true;
-						$cur.stopAuto();
-						for(var i=0;i<idx;i++){
-							$cur.$ct.prepend($cur.$ct.children().last());
-						}
-						$cur.$ct.css({left:-$cur.imgWidth*idx});
-						$cur.$ct.animate({left:'+='+idx*$cur.imgWidth},function(){
-							$cur.curIdx=($cur.curIdx+$cur.imgCount-idx)%$cur.imgCount;
-							$cur.setList();
-							$cur.isAnimate=false;
-							$cur.playAuto();
-						});
-						Event.fire('show_pre');
-					}
-					
-				},
-				playNext:function(idx){
-					var $cur=this;
-					var idx=idx || 1;
-					if(!$cur.isAnimate){
-						$cur.isAnimate=true;
-						$cur.stopAuto();
-						$cur.$ct.animate({left:'-='+idx*$cur.imgWidth},function(){
-							for(var i=0;i<idx;i++){
-								$cur.$ct.append($cur.$ct.children().first());
-							}
-							$cur.$ct.css({left:0});
-							$cur.curIdx=($cur.curIdx+idx)%$cur.imgCount;
-							$cur.setList();
-							$cur.isAnimate=false;
-							$cur.playAuto();
-						})
-						Event.fire('show_next');
-					}
-					
-				},
-				setList:function(){
-					var $cur=this;
-					$cur.$bullet.children().removeClass("active").eq($cur.curIdx).addClass("active");
-				},
-				playAuto:function(){
-					var $cur=this;
-					this.clock=setInterval(function(){
-						$cur.playNext();
-					},2000)
-				},
-				stopAuto:function(){
-					clearInterval(this.clock);
-				}
-			}
-			return Carousel;	
-			}());
-		return Carousel;
-	})		
-		
+      this.$ct.css({width: this.imgWidth * this.imgCount})
+      this.init()
 
+    }
+    Carousel.prototype = {
+      init: function () {
+        this.playAuto();
+        this.bind();
+      },
+      bind: function () {
+        var $cur = this;
+        $cur.$pre.on('click', function () {
+          $cur.playPre();
+        });
+        $cur.$next.on('click', function () {
+          $cur.playNext();
+        });
+        $cur.$bullet.find("li").on("click", function () {
+          var idx = $(this).index();
+          if (idx > $cur.curIdx) {
+            $cur.playNext(idx - $cur.curIdx);
+          }
+          if (idx < $cur.curIdx) {
+            $cur.playPre($cur.curIdx - idx);
+          }
+        })
+      },
+      playPre: function (idx) {
+        var $cur = this;
+        var idx = idx || 1;
+        if (!$cur.isAnimate) {
+          $cur.isAnimate = true;
+          $cur.stopAuto();
+          for (var i = 0; i < idx; i++) {
+            $cur.$ct.prepend($cur.$ct.children().last());
+          }
+          $cur.$ct.css({left: -$cur.imgWidth * idx});
+          $cur.$ct.animate({left: '+=' + idx * $cur.imgWidth}, function () {
+            $cur.curIdx = ($cur.curIdx + $cur.imgCount - idx) % $cur.imgCount;
+            $cur.setList();
+            $cur.isAnimate = false;
+            $cur.playAuto();
+          });
+          Event.fire('show_pre');
+        }
 
-		
+      },
+      playNext: function (idx) {
+        var $cur = this;
+        var idx = idx || 1;
+        if (!$cur.isAnimate) {
+          $cur.isAnimate = true;
+          $cur.stopAuto();
+          $cur.$ct.animate({left: '-=' + idx * $cur.imgWidth}, function () {
+            for (var i = 0; i < idx; i++) {
+              $cur.$ct.append($cur.$ct.children().first());
+            }
+            $cur.$ct.css({left: 0});
+            $cur.curIdx = ($cur.curIdx + idx) % $cur.imgCount;
+            $cur.setList();
+            $cur.isAnimate = false;
+            $cur.playAuto();
+          })
+          Event.fire('show_next');
+        }
+
+      },
+      setList: function () {
+        var $cur = this;
+        $cur.$bullet.children().removeClass("active").eq($cur.curIdx).addClass("active");
+      },
+      playAuto: function () {
+        var $cur = this;
+        this.clock = setInterval(function () {
+          $cur.playNext();
+        }, 2000)
+      },
+      stopAuto: function () {
+        clearInterval(this.clock);
+      }
+    }
+    return Carousel;
+  }());
+  return Carousel;
+})
 
 
 
-		
+
+
+
+
+
 /**
  <div class="carousel">
  		<ul class="img-ct clearfix">
@@ -134,7 +134,7 @@ define(['jquery','com/event'],function($,Event){
  			<li></li>
  		</ul>
  	</div>
-**/	
+**/
 
 
 
@@ -145,7 +145,7 @@ define(['jquery','com/event'],function($,Event){
 	overflow: hidden;
 }
 .carousel-slide .img-ct{
-	position: absolute;  
+	position: absolute;
 }
 .carousel-slide .img-ct >li{
 	float: left;
@@ -196,7 +196,7 @@ define(['jquery','com/event'],function($,Event){
 .carousel .bullet li.active{
 	background: #666;
 }
-**/	
+**/
 
 /**单独样式**/
 /**

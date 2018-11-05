@@ -21,58 +21,58 @@ Tab.init($('.tab'), function($panel){
 
  */
 
-define(['jquery'],function($) {
-	
-	var Tab = (function() {
+define(['jquery'], function ($) {
 
-		var tabList = [];
+  var Tab = (function () {
 
-		function init($tab, handler) {
-			$tab.each(function() {
-				var $cal = $(this);
-				if ($cal.hasClass('init')) {
-					return;
-				}
-				tabList.push(new _Tab($cal, handler));
-				$cal.addClass('init');
-			});
+    var tabList = [];
 
-		}
+    function init($tab, handler) {
+      $tab.each(function () {
+        var $cal = $(this);
+        if ($cal.hasClass('init')) {
+          return;
+        }
+        tabList.push(new _Tab($cal, handler));
+        $cal.addClass('init');
+      });
 
-		function _Tab($tab, handler) {
-			this.$tab = $tab;
-			this.$lis = $tab.find('li');
-			this.$panels = $tab.find('.panel');
-			this.handler = handler;
-			this.bind();
-			handler && handler(this.$panels.eq(0));
-		}
+    }
 
-		_Tab.prototype = {
+    function _Tab($tab, handler) {
+      this.$tab = $tab;
+      this.$lis = $tab.find('li');
+      this.$panels = $tab.find('.panel');
+      this.handler = handler;
+      this.bind();
+      handler && handler(this.$panels.eq(0));
+    }
 
-			bind: function() {
-				var me = this;
-				this.$lis.on('click', function() {
-					var index = $(this).index();
-					me.$lis.removeClass('active');
-					me.$lis.eq(index).addClass('active');
+    _Tab.prototype = {
 
-					me.$panels.removeClass('active');
-					me.$panels.eq(index).addClass('active');
+      bind: function () {
+        var me = this;
+        this.$lis.on('click', function () {
+          var index = $(this).index();
+          me.$lis.removeClass('active');
+          me.$lis.eq(index).addClass('active');
 
-					me.handler && me.handler(me.$panels.eq(index));
-				});
-			},
+          me.$panels.removeClass('active');
+          me.$panels.eq(index).addClass('active');
 
-
-		};
+          me.handler && me.handler(me.$panels.eq(index));
+        });
+      },
 
 
-		return {
-			init: init
-		};
+    };
 
-	})();
 
-	return Tab;
+    return {
+      init: init
+    };
+
+  })();
+
+  return Tab;
 });

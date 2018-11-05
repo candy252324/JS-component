@@ -1,37 +1,35 @@
+define(['jquery'], function ($) {
+  var GoTop = {
+    init: function () {
 
+      if ($('#gotop').length > 0) {
+        return;
+      }
+      var $goTop = $('<button id="gotop">回到顶部</button>');
+      $('body').append($goTop);
 
-define(['jquery'], function( $ ) {
-	var GoTop = {
-		init: function(){
+      this.$goTop = $goTop;
+      this.bind();
 
-			if($('#gotop').length > 0){
-				return;
-			}
-			var $goTop = $('<button id="gotop">回到顶部</button>');
-			$('body').append($goTop);
+    },
+    bind: function () {
+      var self = this;
+      $(window).on('scroll', function (e) {
+        var offsetTop = $('body').scrollTop();
+        if (offsetTop > 100) {
 
-			this.$goTop = $goTop;
-			this.bind();
+          self.$goTop.show();
+        } else {
+          self.$goTop.hide();
+        }
+      })
+      this.$goTop.on('click', function () {
+        $(window).scrollTop(0);
+      });
+    }
+  }
 
-		},
-		bind: function(){
-			var self = this;
-			$(window).on('scroll', function(e){
-				var offsetTop = $('body').scrollTop();
-				if(offsetTop>100){
-
-					self.$goTop.show();
-				}else{
-					self.$goTop.hide();
-				}
-			})
-			this.$goTop.on('click', function(){
-				$(window).scrollTop(0);
-			});
-		}
-	}
-
-	return GoTop;
-});	
+  return GoTop;
+});
 
  // GoTop.init();

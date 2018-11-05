@@ -1,4 +1,3 @@
-define(['jquery','com/waterfall'],function($,WaterFall){
-	
-	 WaterFall.init($('.ct'));
+define(['jquery', 'com/waterfall'], function ($, WaterFall) {
+  WaterFall.init($('.ct'));
 })

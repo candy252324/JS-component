@@ -1,38 +1,37 @@
+define(function () {
 
-define(function(){
+  var EventCenter = (function () {
 
-	var EventCenter = (function(){
+    var events = {};
 
-		var events = {};
+    function on(evt, handler) {
+      events[evt] = events[evt] || [];    // events = {'text-change': []}
+      events[evt].push({
+        handler: handler
+      });
 
-		function on(evt, handler){
-			events[evt] = events[evt] || [];    // events = {'text-change': []}
-			events[evt].push({
-				handler: handler
-			});
-			
-			 // events = {'text-change': [ { handler: Fun1 },{ handler:Fun2 },  ]}
-			  
-		}
+      // events = {'text-change': [ { handler: Fun1 },{ handler:Fun2 },  ]}
 
-		function fire(evt, args){
-			if(!events[evt]){
-				return;
-			}
-			for(var i=0; i<events[evt].length; i++){
-				events[evt][i].handler(args);
-			}
-			
-		}
+    }
 
-		return {
-			on: on,
-			fire: fire
-		}
-	})();
+    function fire(evt, args) {
+      if (!events[evt]) {
+        return;
+      }
+      for (var i = 0; i < events[evt].length; i++) {
+        events[evt][i].handler(args);
+      }
+
+    }
+
+    return {
+      on: on,
+      fire: fire
+    }
+  })();
 
 
-	return EventCenter;
+  return EventCenter;
 });
 
 
@@ -41,10 +40,10 @@ define(function(){
 	// EventCenter.on('text-change', function(data){
 	// 	console.log(data);
 	// });
-	
+
 	// EventCenter.on('text-change', function(data){
 	// 	alert(1);
 	// });
-	
+
 
 	// EventCenter.fire('text-change', 100);

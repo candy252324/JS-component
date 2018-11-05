@@ -1,4 +1,3 @@
-define(['com/gotop'],function(GoTop){
-	
-	  GoTop.init();
+define(['com/gotop'], function (GoTop) {
+  GoTop.init();
 })

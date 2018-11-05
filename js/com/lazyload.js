@@ -1,56 +1,55 @@
-	
-define(['jquery'],function($) {	
+define(['jquery'], function ($) {
 
-	var LazyLoad=(function(){
-		var clock;
-		$(window).on('scroll', function(){
-		    if(clock){
-		      clearTimeout(clock);
-		    }
-		    clock = setTimeout(function(){
-		      	show();
-		    }, 300);
-		});
+  var LazyLoad = (function () {
+    var clock;
+    $(window).on('scroll', function () {
+      if (clock) {
+        clearTimeout(clock);
+      }
+      clock = setTimeout(function () {
+        show();
+      }, 300);
+    });
 
-		show();
+    show();
 
-		function show(){
-			$('.ct img').each(function(){
-				var $cur = $(this);
-	      		if($cur.attr('isLoaded')){
-	        		return;
-	     		}
-				if(isVisible($cur)){
-					$cur.attr('src', $cur.attr('data-src'));
-	      			$cur.attr('isLoaded', true);
-				}
-			});
-		}
+    function show() {
+      $('.ct img').each(function () {
+        var $cur = $(this);
+        if ($cur.attr('isLoaded')) {
+          return;
+        }
+        if (isVisible($cur)) {
+          $cur.attr('src', $cur.attr('data-src'));
+          $cur.attr('isLoaded', true);
+        }
+      });
+    }
 
-		function isVisible($ele){
-		    var scrollH = $(window).scrollTop(),
-		  	    winH = $(window).height(),
-		  	    top = $ele.offset().top;
+    function isVisible($ele) {
+      var scrollH = $(window).scrollTop(),
+        winH = $(window).height(),
+        top = $ele.offset().top;
 
-	  	    if(top < winH + scrollH){
-	  	  		return true;
-	  	    }else{
-	  	  		return false;
-	  	    }
-		}
+      if (top < winH + scrollH) {
+        return true;
+      } else {
+        return false;
+      }
+    }
 
-		return {
-			show:show
-		}
-	})()
+    return {
+      show: show
+    }
+  })()
 
-	return LazyLoad;
+  return LazyLoad;
 })
 
-	//LazyLoad.show();
-		
+//LazyLoad.show();
 
-		
+
+
 
 
 

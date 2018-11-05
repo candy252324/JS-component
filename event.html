@@ -1,137 +1,154 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
- 	<meta charset="UTF-8">
- 	<title>event</title>
- 	<style type="text/css">
- 		ul,li{
- 			margin:0;
- 			padding:0;
- 		}
- 		li{
- 			list-style: none;
- 		}
- 		a{
- 			text-decoration: none;
- 		}
- 		.clearfix:after{
- 			content: "";
- 			display: block;
- 			clear:both;
- 		}
- 		.carousel{
- 			position: relative;
- 			margin:10px;
- 			width:310px;
- 			height: 206px;
- 			overflow: hidden;
- 		}
- 		.img-ct{
- 			position: absolute;
- 		}
- 		.img-ct img{
- 			width:310px;
- 			height: 206px;
- 		}
- 		.img-ct li{
- 			float: left;
- 		}
- 		.arrow{
- 			position: absolute;
- 			width: 30px;
- 			height: 30px;
- 			line-height: 30px;
- 			text-align: center;
- 			cursor: pointer;
- 			border-radius: 50%;
- 			box-shadow: 0 0 2px #999;
- 			color:#fff;
- 			background: #000;
- 			opacity: 0.6;
-			
- 		}
- 		.arrow:hover{
- 			opacity: 1;
- 		}
- 		.pre{
- 			top:50%;
- 			left:15px;
- 			transform: translateY(-50%);
- 		}
- 		.next{
- 			top:50%;
- 			right: 15px;
- 			transform: translateY(-50%);
- 		}
- 		.active{
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>event</title>
+  <style type="text/css">
+    ul, li {
+      margin: 0;
+      padding: 0;
+    }
 
- 		}
- 		.bullet{
- 			position: absolute;
- 			left:50%;
- 			bottom: 20px;
- 			transform: translate(-50%);
- 		}
- 		.bullet li{
- 			float: left;
- 			margin:0 3px;
- 			width: 15px;
- 			height: 3px;
- 			border-radius: 5px;
- 			background: #fff;
- 		}
- 		.bullet li.active{
- 			background: #666;
- 		}
-		.intro p{
-			display: none;
-			margin: 10px;
-			width: 310px;
-			text-align: center;
-			font-size: 20px;
-		}
-		.intro p.active{
-			display: block;
-		}
- 	</style>
- </head>
- <body>
+    li {
+      list-style: none;
+    }
 
- 	
- 	 <div class="carousel">
- 		<ul class="img-ct clearfix">
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg""></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg""></a></li>
- 		</ul>
- 		<div class="pre arrow"><</div>
- 		<div class="next arrow">></div>
- 		<ul class="bullet">
- 			<li class="active"></li>
- 			<li></li>
- 			<li></li>
- 			<li></li>
- 		</ul>
- 	</div>
- 	<div class="intro">
- 		<p class="active">建筑</p>
-		<p>大海</p>
-		<p>小麦</p>
-		<p>夕阳</p>
- 	</div>
+    a {
+      text-decoration: none;
+    }
 
- 
- 	<script src="./tools/require.min.js"></script>
- 	<script type="text/javascript">
-		requirejs.config({
-			baseUrl:"./js",
-			paths:{
-				"jquery":"../lib/jquery.min"
-			}
-		})
-		requirejs(["eventEntry"]);
-	
- 	</script>
- </body>
- </html>
+    .clearfix:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .carousel {
+      position: relative;
+      margin: 10px;
+      width: 310px;
+      height: 206px;
+      overflow: hidden;
+    }
+
+    .img-ct {
+      position: absolute;
+    }
+
+    .img-ct img {
+      width: 310px;
+      height: 206px;
+    }
+
+    .img-ct li {
+      float: left;
+    }
+
+    .arrow {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 0 2px #999;
+      color: #fff;
+      background: #000;
+      opacity: 0.6;
+
+    }
+
+    .arrow:hover {
+      opacity: 1;
+    }
+
+    .pre {
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+    }
+
+    .next {
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+    }
+
+    .active {
+
+    }
+
+    .bullet {
+      position: absolute;
+      left: 50%;
+      bottom: 20px;
+      transform: translate(-50%);
+    }
+
+    .bullet li {
+      float: left;
+      margin: 0 3px;
+      width: 15px;
+      height: 3px;
+      border-radius: 5px;
+      background: #fff;
+    }
+
+    .bullet li.active {
+      background: #666;
+    }
+
+    .intro p {
+      display: none;
+      margin: 10px;
+      width: 310px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .intro p.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="carousel">
+  <ul class="img-ct clearfix">
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg""></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg""></a></li>
+  </ul>
+  <div class="pre arrow"><</div>
+  <div class="next arrow">></div>
+  <ul class="bullet">
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+<div class="intro">
+  <p class="active">建筑</p>
+  <p>大海</p>
+  <p>小麦</p>
+  <p>夕阳</p>
+</div>
+
+
+<script src="./tools/require.min.js"></script>
+<script type="text/javascript">
+  requirejs.config({
+    baseUrl: "./js",
+    paths: {
+      "jquery": "../lib/jquery.min"
+    }
+  })
+  requirejs(["eventEntry"]);
+
+</script>
+</body>
+</html>

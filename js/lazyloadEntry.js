@@ -1,4 +1,3 @@
-define(['jquery','com/lazyload'],function($,LazyLoad){
-	
-	 LazyLoad.show()
+define(['jquery', 'com/lazyload'], function ($, LazyLoad) {
+  LazyLoad.show()
 })

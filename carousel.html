@@ -1,209 +1,202 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
- 	<meta charset="UTF-8">
- 	<title>carousel</title>
- 	<style type="text/css">
-		ul,li{
- 			margin:0;
- 			padding:0;
- 		}
- 		li{
- 			list-style: none;
- 		}
- 		a{
- 			text-decoration: none;
- 		}
-		
- 		.carousel{   /*img-ct设置了absolute,carousel不写宽高要塌陷*/
-			position: relative;
-			width:310px;
- 			height: 206px;
- 			margin-bottom: 20px;
-			overflow: hidden;
-		}
-		
- 		/*slide*/
-		.carousel-slide .img-ct{
-			position: absolute;  /*设置absolute才有滑动效果，同时BFC化，img-ct高度不塌陷*/
-		}
-		.carousel-slide .img-ct >li{
-			float: left;
-		}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>carousel</title>
+  <style type="text/css">
+    ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .carousel { /*img-ct设置了absolute,carousel不写宽高要塌陷*/
+      position: relative;
+      width: 310px;
+      height: 206px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    /*slide*/
+    .carousel-slide .img-ct {
+      position: absolute; /*设置absolute才有滑动效果，同时BFC化，img-ct高度不塌陷*/
+    }
+
+    .carousel-slide .img-ct > li {
+      float: left;
+    }
+
+    /*fade*/
+    .carousel-fade .img-ct > li {
+      position: absolute;
+      display: none;
+    }
+
+    .carousel-fade .img-ct > li:first-child {
+      display: block;
+    }
+
+    .carousel .arrow {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 0 2px #999;
+      color: #fff;
+      background: #000;
+      opacity: 0.6;
+    }
+
+    .carousel .arrow:hover {
+      opacity: 1;
+    }
+
+    .carousel .pre {
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+    }
+
+    .carousel .next {
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+    }
+
+    .carousel .bullet {
+      position: absolute;
+      left: 50%;
+      bottom: 20px;
+      transform: translate(-50%);
+    }
+
+    .carousel .bullet li {
+      float: left;
+      margin: 0 3px;
+      width: 15px;
+      height: 3px;
+      border-radius: 5px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .carousel .bullet li.active {
+      background: #ff6000;
+    }
+
+    .img-ct img { /*图片宽高写死*/
+      width: 320px;
+      height: 206px;
+    }
+
+    .carousel-bigger {
+      width: 420px;
+      height: 306px;
+    }
+
+    .carousel-bigger .img-ct img {
+      width: 420px;
+      height: 306px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="carousel carousel-slide carousel-bigger">
+  <ul class="img-ct">
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg""></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg""></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg""></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg""></a></li>
+  </ul>
+  <div class="pre arrow"><</div>
+  <div class="next arrow">></div>
+  <ul class="bullet">
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
 
 
-		/*fade*/
-		.carousel-fade .img-ct >li{
-			position: absolute;
-			display: none;
-		}
-
-		.carousel-fade .img-ct >li:first-child{
-			display: block;
-		}
-
-		.carousel .arrow{
-			position: absolute;
- 			width: 30px;
- 			height: 30px;
- 			line-height: 30px;
- 			text-align: center;
- 			cursor: pointer;
- 			border-radius: 50%;
- 			box-shadow: 0 0 2px #999;
- 			color:#fff;
- 			background: #000;
- 			opacity: 0.6;
-		}
-		.carousel .arrow:hover{
-			opacity: 1;
-		}
-		.carousel .pre{
-			top:50%;
- 			left:15px;
- 			transform: translateY(-50%);
-		}
-		.carousel .next{
-			top:50%;
- 			right: 15px;
- 			transform: translateY(-50%);
-		}
-		.carousel .bullet{
-			position: absolute;
- 			left:50%;
- 			bottom: 20px;
- 			transform: translate(-50%);
-		}
-		.carousel .bullet li{
-			float: left;
- 			margin:0 3px;
- 			width: 15px;
- 			height: 3px;
- 			border-radius: 5px;
- 			background: #fff;
- 			cursor: pointer;
-		}
-		.carousel .bullet li.active{
-			background: #ff6000;
-		}
-		
- 		.img-ct img{  /*图片宽高写死*/
- 			width:320px;
- 			height: 206px;
- 		}
-		
+<div class="carousel carousel-slide">
+  <ul class="img-ct">
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg""></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg""></a></li>
+  </ul>
+  <div class="pre arrow"><</div>
+  <div class="next arrow">></div>
+  <ul class="bullet">
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
 
 
-		
-
-		.carousel-bigger{
-			width: 420px;
-			height: 306px;
-		}
-		.carousel-bigger .img-ct img{
-			width: 420px;
-			height: 306px;
-		}
-
-
-
-
- 	</style>
- </head>
- <body>
-
- 	<div class="carousel carousel-slide carousel-bigger">
- 		<ul class="img-ct">
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg""></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg""></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg""></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg""></a></li>
- 		</ul>
- 		<div class="pre arrow"><</div>
- 		<div class="next arrow">></div>
- 		<ul class="bullet">
- 			<li class="active"></li>
- 			<li></li>
- 			<li></li>
- 			<li></li>
- 			<li></li>
- 			<li></li>
- 		</ul>
- 	</div>
-
- 	
- 	 <div class="carousel carousel-slide">
- 		<ul class="img-ct">
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg""></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg""></a></li>
- 		</ul>
- 		<div class="pre arrow"><</div>
- 		<div class="next arrow">></div>
- 		<ul class="bullet">
- 			<li class="active"></li>
- 			<li></li>
- 			<li></li>
- 			<li></li>
- 		</ul>
- 	</div>
- 	
-
- 	
- 	<div class="carousel carousel-fade carousel-bigger clearfix">
- 		<ul class="img-ct">
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg""></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg""></a></li>
- 		</ul>
- 		<div class="pre arrow"><</div>
- 		<div class="next arrow">></div>
- 		<ul class="bullet">
- 			<li class="active"></li>
- 			<li></li>
- 			<li></li>
- 			<li></li>
- 		</ul>
- 	</div>
- 	
-
- 	<div class="carousel carousel-fade clearfix">
- 		<ul class="img-ct">
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
- 			<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg""></a></li>
- 		</ul>
- 		<div class="pre arrow"><</div>
- 		<div class="next arrow">></div>
- 		<ul class="bullet">
- 			<li class="active"></li>
- 			<li></li>
- 			<li></li>
- 		</ul>
- 	</div>
- 	
+<div class="carousel carousel-fade carousel-bigger clearfix">
+  <ul class="img-ct">
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg"></a></li>
+  </ul>
+  <div class="pre arrow"><</div>
+  <div class="next arrow">></div>
+  <ul class="bullet">
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
 
 
-	
+<div class="carousel carousel-fade clearfix">
+  <ul class="img-ct">
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+    <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
+  </ul>
+  <div class="pre arrow"><</div>
+  <div class="next arrow">></div>
+  <ul class="bullet">
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
 
 
+<script src="./tools/require.min.js"></script>
+<script type="text/javascript">
+  requirejs.config({
+    baseUrl: "./js",
+    paths: {
+      "jquery": "../lib/jquery.min"
+    }
+  })
+  requirejs(["carouselEntry"]);
 
-
- 
- 	<script src="./tools/require.min.js"></script>
- 	<script type="text/javascript">
-		requirejs.config({
-			baseUrl:"./js",
-			paths:{
-				"jquery":"../lib/jquery.min"
-			}
-		})
-		requirejs(["carouselEntry"]);
-	
- 	</script>
- </body>
- </html>
+</script>
+</body>
+</html>
